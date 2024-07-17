@@ -11,4 +11,9 @@ class Employer extends Model
 
     // To create a model along with migration and factory in CLI
     // Run `php artisan make:model Employer -mf`
+
+    // This method is used to define the relationship between the Employer model and the Job model.
+    public function jobs() {
+        return $this->hasMany(Job::class);
+    }
 }
