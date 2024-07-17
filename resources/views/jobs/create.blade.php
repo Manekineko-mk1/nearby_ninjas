@@ -21,8 +21,13 @@
                                 class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                                 <input type="text" name="title" id="title"
                                     class="block flex-1 border-0 bg-transparent py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                    placeholder="Software Engineer">
+                                    placeholder="Software Engineer" required>
                             </div>
+                            
+                            <!-- Inline error message -->
+                            @error('title')
+                                <p class="mt-2 text-sm text-red-500 font-semibold">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
 
@@ -34,15 +39,21 @@
                                 class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                                 <input type="text" name="salary" id="salary"
                                     class="block flex-1 border-0 bg-transparent py-1.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                    placeholder="$70,000 - $90,000">
+                                    placeholder="$70,000 - $90,000" required>
                             </div>
+
+                            <!-- Inline error message -->
+                            @error('salary')
+                                <p class="mt-2 text-sm text-red-500 font-semibold">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
 
 
                     <!-- Job Description -->
                     <div class="col-span-full">
-                        <label for="jobDescription" class="block text-sm font-medium leading-6 text-gray-900">Job Description</label>
+                        <label for="jobDescription" class="block text-sm font-medium leading-6 text-gray-900">Job
+                            Description</label>
                         <div class="mt-2">
                             <textarea id="jobDescription" name="jobDescription" rows="3"
                                 class="block w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
@@ -50,7 +61,20 @@
                         <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about position.</p>
                     </div>
                 </div>
-            </div>  
+
+                <!-- Error Messages -->
+                <!-- <div class="mt-10">
+                    @if($errors->any())
+                        <p class="text-red-500 font-semibold">Error:</p>
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li class="text-red-500 italic">{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </div> -->
+
+            </div>
         </div>
 
         <!-- Save and Cancel buttons -->
