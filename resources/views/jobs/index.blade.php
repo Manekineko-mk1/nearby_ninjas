@@ -1,3 +1,4 @@
+<!-- Index view is for displaying all tasks -->
 <x-layout>
     <x-slot:heading>Jobs Listing</x-slot:heading>
 

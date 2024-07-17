@@ -1,3 +1,4 @@
+<!-- Show view is for displaying a single task -->
 <x-layout>
     <x-slot:heading>Job</x-slot:heading>
 

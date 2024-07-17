@@ -16,7 +16,7 @@ class Job extends Model
 {
    use HasFactory;
    protected $table = 'job_listings';
-   protected $fillable = ['title', 'description', 'salary'];
+   protected $guarded = [];
 
    // This method is used to define the relationship between the Job model and the Employer model.
    // To test this in CLI, run the following command: 

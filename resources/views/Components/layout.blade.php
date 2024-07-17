@@ -15,8 +15,7 @@
                 <div class="flex h-16 items-center justify-between">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
-                            <img class="h-8 w-15" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/CGI_logo.svg/303px-CGI_logo.svg.png"
-                                alt="CGI">
+                            <!-- <img class="h-8 w-15" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/CGI_logo.svg/303px-CGI_logo.svg.png" alt="CGI"> -->
                         </div>
                         <!-- Navigation Links -->
                         <div class="hidden md:block">
