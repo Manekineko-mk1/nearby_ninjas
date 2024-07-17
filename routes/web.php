@@ -16,11 +16,12 @@ Route::get('/jobs', function () {
 });
 
 // View to create a job
+// Note: This route should be placed above the route that displays a single job
 Route::get('/jobs/create', function () {
     return view('jobs.create');
 });
 
-// View to display a single job
+// Show a single job
 Route::get('jobs/{id}', function ($id) {
 
     $job = Job::find($id);
@@ -31,7 +32,7 @@ Route::get('jobs/{id}', function ($id) {
     return view('jobs.show', ['job' => $job]);
 });
 
-// Route to post a job
+// POST a job
 Route::post('/jobs', function () {
     //dd(request()->all());
 
@@ -50,6 +51,48 @@ Route::post('/jobs', function () {
     return redirect('/jobs');
 });
 
+
+// Edit a single job
+Route::get('jobs/{id}/edit', function ($id) {
+
+    $job = Job::find($id);
+
+    return view('jobs.edit', ['job' => $job]);
+});
+
+
+// Update a single job
+Route::patch('jobs/{id}', function ($id) {
+    // Validate the request
+    request()->validate([
+        'title' => ['required', 'min:3'],
+        'salary' => ['required']
+    ]);
+
+    // Authenticate the user (ONHOLD)
+
+    // Find and update the job
+    $job = Job::findOrFail($id);
+    
+    // Presist the changes to the database
+    $job->update([
+        'title' => request('title'),
+        'description' => request('description'),
+        'salary' => request('salary')
+    ]);
+
+    return redirect('/jobs/' . $job->id);
+});
+
+// Delete a single job
+Route::delete('jobs/{id}', function ($id) {
+    // Authenticate the user (ONHOLD)
+
+    // Find the job and presist the changes
+    Job::findOrFail($id)->delete();
+ 
+    return redirect('/jobs');
+});
 
 Route::get('/contact', function () {
     return view('contact');
